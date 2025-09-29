@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTC-JAL Team Onboardi                <!-- Step 1 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500" onclick="toggleStep('step1')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Dataset Delivery 📊</h3>
+                                <p class="text-gray-600">Data arrives via CSV files OR directly from Google Analytics API (like having multiple data highways!)</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step1-icon">👆 Click to expand</span>
+                        </div>
+                    </div>dventure Begins! 🛫</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jal-red': '#D32F2F',
+                        'jal-navy': '#1976D2',
+                        'jal-gold': '#FFB300'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .jal-gradient {
+            background: linear-gradient(135deg, #D32F2F 0%, #1976D2 50%, #FFB300 100%);
+        }
+        .code-block {
+            background: #1e293b;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .step-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .hidden-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .hidden-content.expanded {
+            max-height: 4500px;
+        }
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid #4F46E5;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #4F46E5 }
+        }
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Hero Section -->
+    <div class="jal-gradient text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-4 bounce-in">
+                Welcome to RTC-JAL! 🎌✈️
+            </h1>
+            <p class="text-xl mb-8 typing-animation inline-block">
+                Where Data Meets Business Problems (And We Actually Solve Them!)
+            </p>
+            <div class="bg-white bg-opacity-20 rounded-lg p-6 max-w-2xl mx-auto">
+                <p class="text-lg">
+                    🚀 Your mission: Transform Japan Airlines' customer experience through data-driven problem prioritization
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-jal-navy">2</div>
+                    <div class="text-gray-600">Data Source Options</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-jal-gold">🤝</div>
+                    <div class="text-gray-600">Human-LLM Partnership</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-purple-600">∞</div>
+                    <div class="text-gray-600">Coffee Still Required</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 py-12">
+        
+        <!-- Architecture Overview -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                🏗️ The Grand Architecture (It's Actually Simple, We Promise)
+            </h2>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-jal-navy">Two Repositories to Rule Them All</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <span class="text-2xl">🎯</span>
+                                <div>
+                                    <strong class="text-jal-red">rtc-jal</strong> (This one!)
+                                    <p class="text-gray-600">The main app where business problems live, get prioritized, and admins connect analysis results</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="text-2xl">🔬</span>
+                                <div>
+                                    <strong class="text-jal-navy">rtc-jal-analysis-925</strong>
+                                    <p class="text-gray-600">The analysis engine that crunches numbers and spits out insights (like a data-powered espresso machine)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg">
+                        <div class="text-center text-sm text-gray-600 mb-4">The Data Flow Dance 💃</div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 bg-green-400 rounded-full"></span>
+                                <span>CSV Data OR GA4 API → Analysis Engine</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 bg-blue-400 rounded-full"></span>
+                                <span>Smart Analysis → Supabase Tables</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 bg-purple-400 rounded-full"></span>
+                                <span>Admin Panel → Problem Connection</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 bg-gold-400 rounded-full"></span>
+                                <span>Beautiful Charts → Happy Stakeholders</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Journey Steps -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                🗺️ The Data Adventure Journey (7 Epic Steps)
+            </h2>
+            
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500" onclick="toggleStep('step1')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Dataset Delivery 📊</h3>
+                                <p class="text-gray-600">You bring the data, we bring the magic</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step1-icon">👆 Click to expand</span>
+                        </div>
+                    </div>
+                    
+                    <div id="step1-content" class="hidden-content mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">What You Do (Choose Your Data Adventure):</h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                                <!-- CSV Option -->
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-green-600 mb-2">📁 Option 1: CSV Files (The Classic)</h5>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• Drop CSV files into <code class="bg-gray-200 px-1 rounded text-xs">data/raw/</code></li>
+                                        <li>• Perfect for historical data dumps</li>
+                                        <li>• Great for one-time analyses</li>
+                                        <li>• LLM auto-detects structure</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- GA4 API Option -->
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-blue-600 mb-2">🔗 Option 2: Google Analytics API (The Future)</h5>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• Provide service account JSON key</li>
+                                        <li>• LLM handles all API calls automatically</li>
+                                        <li>• Real-time data pulling (no uploads!)</li>
+                                        <li>• Perfect for ongoing monitoring</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 border border-blue-200 rounded p-3 mb-4">
+                                <div class="flex">
+                                    <div class="text-blue-600 mr-2">🔐</div>
+                                    <div class="text-sm text-blue-800">
+                                        <strong>GA4 Setup:</strong> Just drop your Google service account JSON key in the config, and the LLM becomes your personal data-fetching assistant! It handles rate limits, batching, and all the API complexity.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="code-block p-4 text-green-400 text-sm">
+<pre># Example: JAL booking data structure (same format from both sources!)
+user_id,event_name,event_timestamp,destination,channel
+user123,page_view,2025-09-01 10:00:00,Tokyo,organic
+user123,search_flights,2025-09-01 10:02:15,Tokyo,organic
+user123,select_flight,2025-09-01 10:05:30,Tokyo,organic
+# ... more delicious data ...</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-500" onclick="toggleStep('step2')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Human-LLM Strategic Collaboration �</h3>
+                                <p class="text-gray-600">You drive the strategy, LLM handles the technical heavy lifting (teamwork makes the dream work!)</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step2-icon">👆 Click to expand</span>
+                        </div>
+                    </div>
+                    
+                    <div id="step2-content" class="hidden-content mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">The Perfect Partnership (Who Does What):</h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-purple-600 mb-2">�‍💼 You (The Strategic Mastermind)</h5>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• Define business objectives & KPIs</li>
+                                        <li>• Choose analysis methodologies</li>
+                                        <li>• Set segmentation strategies</li>
+                                        <li>• Design funnel steps & conversion logic</li>
+                                        <li>• Interpret results in business context</li>
+                                        <li>• Make strategic recommendations</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-green-600 mb-2">🤖 LLM (The Technical Wizard)</h5>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• Analyzes data structure & schema</li>
+                                        <li>• Optimizes queries & API calls</li>
+                                        <li>• Handles technical implementation</li>
+                                        <li>• Generates configuration files</li>
+                                        <li>• Spots data quality issues</li>
+                                        <li>• Provides coding assistance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 bg-orange-50 border border-orange-200 rounded p-3">
+                                <div class="flex">
+                                    <span class="text-orange-600 mr-2">⚠️</span>
+                                    <span class="text-sm text-orange-800">
+                                        <strong>Critical:</strong> Don't let the LLM drive your business strategy! You're the expert on JAL's business needs. The LLM is your incredibly smart technical assistant, not your strategic decision maker.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Auth Setup Note -->
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-blue-600 text-2xl">🔐</div>
+                        <div>
+                            <h4 class="font-semibold text-blue-800 mb-2">Quick Auth Setup for GA4 API (If You're Going That Route)</h4>
+                            <div class="text-sm text-blue-700 space-y-1">
+                                <p>• Create a Google Cloud service account with Analytics Reporting API access</p>
+                                <p>• Generate OAuth tokens for API authentication (keep them secret! 💍)</p>
+                                <p>• Add service account email to your GA4 property as a Viewer</p>
+                                <p>• Provide OAuth tokens to the LLM - it handles all API calls from there!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-500" onclick="toggleStep('step3')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">YAML Configuration Magic ⚙️</h3>
+                                <p class="text-gray-600">Where configuration meets automation (and YAML becomes your friend)</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step3-icon">👆 Click to expand</span>
+                        </div>
+                    </div>
+                    
+                    <div id="step3-content" class="hidden-content mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">The Configuration Files (The Recipe Book):</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-blue-600 mb-2">📋 project.yml - The Basics</h5>
+                                    <div class="code-block p-3 text-sm">
+<pre class="text-green-400"># Who, what, when, where
+client_id: "jal-marketing-2025"
+label: "q3_booking_analysis" 
+date_from: "2025-07-01"
+date_to: "2025-09-30"
+serving:
+  backend: supabase
+  url: "https://your-project.supabase.co"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border space-y-3">
+                                    <h5 class="font-semibold text-green-600 mb-2">🔗 source.yml - Data Sources (Pick Your Poison)</h5>
+                                    
+                                    <div>
+                                        <h6 class="text-sm font-medium text-gray-700 mb-1">📁 CSV Option:</h6>
+                                        <div class="code-block p-3 text-sm">
+<pre class="text-green-400"># For CSV file uploads
+adapter: ga4_csv
+path: "data/raw/*.csv"
+mapping:
+  user_id: user_pseudo_id
+  event_name: event_name
+  event_ts: event_timestamp
+dimensions: [destination, channel, membership_tier]</pre>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h6 class="text-sm font-medium text-gray-700 mb-1">🔗 GA4 API Option:</h6>
+                                        <div class="code-block p-3 text-sm">
+<pre class="text-green-400"># For direct GA4 connection (the future!)
+adapter: ga4_api
+auth:
+  service_account_key: "path/to/your-service-account.json"
+  property_id: "123456789"  # Your GA4 property ID
+query:
+  dimensions: [user_pseudo_id, event_name, page_location]
+  metrics: [event_count, engaged_sessions]
+  date_ranges:
+    start_date: "2025-07-01"
+    end_date: "2025-09-30"</pre>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-blue-50 border border-blue-200 rounded p-2 text-xs text-blue-800">
+                                        <strong>Magic Alert:</strong> With GA4 API, the LLM automatically handles rate limits, batching, and data transformation. You just provide the auth!
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-purple-600 mb-2">🎯 funnel.yml - The Customer Journey</h5>
+                                    <div class="code-block p-3 text-sm">
+<pre class="text-green-400"># The path customers take (hopefully to purchase!)
+steps:
+  - page_view          # 👀 "Hello there!"
+  - search_flights     # 🔍 "Where shall we go?"
+  - select_flight      # ✈️ "This one looks good"
+  - begin_checkout     # 💳 "Let's do this"
+  - purchase           # 🎉 "YASSS!"
+segments: [destination, channel]</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500" onclick="toggleStep('step4')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl">4</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Python Script Generation 🐍</h3>
+                                <p class="text-gray-600">Code writes itself (almost like magic, but with more logic)</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step4-icon">👆 Click to expand</span>
+                        </div>
+                    </div>
+                    
+                    <div id="step4-content" class="hidden-content mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">The Analysis Engine Components:</h4>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="bg-white p-4 rounded border text-center">
+                                    <div class="text-2xl mb-2">📥</div>
+                                    <h5 class="font-semibold text-blue-600 mb-1">Data Adapters</h5>
+                                    <p class="text-xs text-gray-600">CSV readers & GA4 API connectors that don't judge your messy data</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border text-center">
+                                    <div class="text-2xl mb-2">⚡</div>
+                                    <h5 class="font-semibold text-green-600 mb-1">Transform Plugins</h5>
+                                    <p class="text-xs text-gray-600">Where the mathematical magic happens</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border text-center">
+                                    <div class="text-2xl mb-2">🚀</div>
+                                    <h5 class="font-semibold text-purple-600 mb-1">Supabase Publisher</h5>
+                                    <p class="text-xs text-gray-600">Sends results to the cloud (with retry logic)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 bg-blue-50 border border-blue-200 rounded p-3">
+                                <div class="flex">
+                                    <span class="text-blue-500 mr-2">🤖</span>
+                                    <span class="text-sm text-blue-800">
+                                        <strong>Fun Fact:</strong> The analysis engine uses Polars for data processing - it's like Pandas but faster and with fewer existential crises.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-500" onclick="toggleStep('step5')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-xl">5</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Pipeline Execution 🏃‍♂️</h3>
+                                <p class="text-gray-600">Where data transformation dreams come true</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step5-icon">👆 Click to expand</span>
+                        </div>
+                    </div>
+                    
+                    <div id="step5-content" class="hidden-content mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">The Pipeline Steps (In Glorious Detail):</h4>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-start space-x-3 bg-white p-3 rounded border">
+                                    <span class="text-green-500 font-bold">1.</span>
+                                    <div>
+                                        <strong>Data Loading</strong>
+                                        <p class="text-sm text-gray-600">Reads your CSV files OR pulls from GA4 API and validates the structure (with helpful error messages if things go wrong)</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3 bg-white p-3 rounded border">
+                                    <span class="text-blue-500 font-bold">2.</span>
+                                    <div>
+                                        <strong>Transform Execution</strong>
+                                        <p class="text-sm text-gray-600">Runs funnel analysis, calculates metrics, and does all the heavy mathematical lifting</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3 bg-white p-3 rounded border">
+                                    <span class="text-purple-500 font-bold">3.</span>
+                                    <div>
+                                        <strong>Result Publishing</strong>
+                                        <p class="text-sm text-gray-600">Ships results to Supabase tables with proper batch tracking and metadata</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3 bg-white p-3 rounded border">
+                                    <span class="text-orange-500 font-bold">4.</span>
+                                    <div>
+                                        <strong>Batch Finalization</strong>
+                                        <p class="text-sm text-gray-600">Records execution metadata, performance metrics, and creates audit trail</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 code-block p-3 text-sm">
+<pre class="text-green-400"># Run the pipeline (it's this simple!)
+make run
+# OR if you're feeling fancy
+python -m src.at.pipeline_run
+
+# Output: "Pipeline completed successfully. Run ID: amazing-analysis-123"</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-teal-500" onclick="toggleStep('step6')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold text-xl">6</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Supabase Storage 🗄️</h3>
+                                <p class="text-gray-600">Where your insights live happily ever after</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step6-icon">👆 Click to expand</span>
+                        </div>
+                    </div>
+                    
+                    <div id="step6-content" class="hidden-content mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">The Supabase Tables (Your Data's New Home):</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-blue-600 mb-2">📦 result_batches</h5>
+                                    <p class="text-sm text-gray-700 mb-2">The metadata table - tracks who ran what, when, and how long it took</p>
+                                    <div class="text-xs text-gray-500">
+                                        • Batch IDs, timestamps, client isolation<br>
+                                        • Performance metrics and audit trail<br>
+                                        • Input hashes for idempotency (fancy word for "don't run the same thing twice")
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-green-600 mb-2">🎯 funnel_snapshot</h5>
+                                    <p class="text-sm text-gray-700 mb-2">Funnel conversion data - where drop-offs are revealed</p>
+                                    <div class="text-xs text-gray-500">
+                                        • Step-by-step conversion rates<br>
+                                        • Segmented by dimensions (destination, channel, etc.)<br>
+                                        • Perfect for Sankey diagrams and "aha!" moments
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-purple-600 mb-2">📊 metric_series</h5>
+                                    <p class="text-sm text-gray-700 mb-2">Time-series metrics - trends over time made visible</p>
+                                    <div class="text-xs text-gray-500">
+                                        • Daily/weekly KPIs<br>
+                                        • Revenue, conversion rates, user counts<br>
+                                        • Ready for line charts and trend analysis
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 bg-green-50 border border-green-200 rounded p-3">
+                                <div class="flex">
+                                    <span class="text-green-500 mr-2">🔒</span>
+                                    <span class="text-sm text-green-800">
+                                        <strong>Security Note:</strong> All tables use Row Level Security (RLS) - each client only sees their own data. It's like having separate apartments in the same building.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="step-card bg-white rounded-lg shadow-lg p-6 border-l-4 border-pink-500" onclick="toggleStep('step7')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-xl">7</div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Admin Panel Connection 🔗</h3>
+                                <p class="text-gray-600">Where analysis meets business problems (the grand finale!)</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">
+                            <span id="step7-icon">👆 Click to expand</span>
+                        </div>
+                    </div>
+                    
+                    <div id="step7-content" class="hidden-content mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">The Connection Process (Where Magic Meets Business):</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-orange-600 mb-2">🎛️ Analysis Admin Dashboard</h5>
+                                    <p class="text-sm text-gray-700 mb-2">Browse all available analysis batches and their metadata</p>
+                                    <ul class="text-xs text-gray-600 space-y-1">
+                                        <li>• View analysis results by date and type</li>
+                                        <li>• See batch performance metrics</li>
+                                        <li>• Preview data before connecting to problems</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-blue-600 mb-2">🔗 Problem Linking</h5>
+                                    <p class="text-sm text-gray-700 mb-2">Connect specific analysis results to business problems</p>
+                                    <ul class="text-xs text-gray-600 space-y-1">
+                                        <li>• Select the analysis batch</li>
+                                        <li>• Choose the target business problem</li>
+                                        <li>• Configure visualization type (Sankey, bar, line, etc.)</li>
+                                        <li>• Add contextual notes and insights</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded border">
+                                    <h5 class="font-semibold text-green-600 mb-2">📈 Visualization Magic</h5>
+                                    <p class="text-sm text-gray-700 mb-2">Analysis appears in the problem detail view</p>
+                                    <ul class="text-xs text-gray-600 space-y-1">
+                                        <li>• Automatic chart type selection based on data structure</li>
+                                        <li>• Interactive visualizations with hover details</li>
+                                        <li>• Supporting data tables and metadata</li>
+                                        <li>• Contextual notes and business implications</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Dashboard Screenshots -->
+                                <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded border">
+                                    <h5 class="font-semibold text-indigo-600 mb-4 text-center">🖼️ See It In Action: RTC-JAL Dashboard Screenshots</h5>
+                                    
+                                    <div class="space-y-6">
+                                        <!-- Problems Map View -->
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <h6 class="font-semibold text-gray-800 mb-2">🗺️ Problems Network Map View</h6>
+                                            <p class="text-sm text-gray-600 mb-3">Interactive problem visualization showing relationships, priorities, and clusters with real-time collaboration</p>
+                                            <div class="border rounded-lg overflow-hidden bg-gray-50 p-2">
+                                                <img src="../public/map.png" 
+                                                     alt="RTC-JAL Problems Map Dashboard showing network visualization with color-coded priority levels and relationship edges" 
+                                                     class="w-full h-auto rounded border shadow-sm" />
+                                            </div>
+                                            <div class="mt-2 text-xs text-gray-500">
+                                                <strong>Key Features:</strong> Color-coded priority levels, relationship edges, admin controls, real-time voting, and interactive problem nodes
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Problem Detail View -->
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <h6 class="font-semibold text-gray-800 mb-2">📊 Problem Detail & Analysis View</h6>
+                                            <p class="text-sm text-gray-600 mb-3">Detailed problem analysis with funnel visualization, business impact metrics, and supporting data evidence</p>
+                                            <div class="border rounded-lg overflow-hidden bg-gray-50 p-2">
+                                                <img src="../public/details.png" 
+                                                     alt="RTC-JAL Problem Detail Dashboard showing funnel analysis with business impact scoring and revenue metrics" 
+                                                     class="w-full h-auto rounded border shadow-sm" />
+                                            </div>
+                                            <div class="mt-2 text-xs text-gray-500">
+                                                <strong>Key Features:</strong> Sankey funnel visualization, conversion metrics, revenue impact analysis, priority scoring, and supporting data tables
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Additional Detail View -->
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <h6 class="font-semibold text-gray-800 mb-2">📈 Enhanced Problem Analysis View</h6>
+                                            <p class="text-sm text-gray-600 mb-3">Extended analysis view showing additional metrics, supporting data sections, and comprehensive business impact assessment</p>
+                                            <div class="border rounded-lg overflow-hidden bg-gray-50 p-2">
+                                                <img src="../public/details2.png" 
+                                                     alt="RTC-JAL Enhanced Problem Detail Dashboard showing extended analysis with supporting data and comprehensive metrics" 
+                                                     class="w-full h-auto rounded border shadow-sm" />
+                                            </div>
+                                            <div class="mt-2 text-xs text-gray-500">
+                                                <strong>Key Features:</strong> Extended data visualization, comprehensive supporting evidence, detailed business impact analysis, and actionable insights
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 text-center">
+                                        <p class="text-sm text-indigo-700">
+                                            <strong>💡 Pro Tip:</strong> Both views work together - use the map for strategic overview and problem relationships, then drill into details for specific analysis and metrics!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 bg-purple-50 border border-purple-200 rounded p-3">
+                                <div class="flex">
+                                    <span class="text-purple-500 mr-2">🎭</span>
+                                    <span class="text-sm text-purple-800">
+                                        <strong>The Result:</strong> Business stakeholders see beautiful, interactive charts that tell the story of their customer data, connected directly to the problems they're trying to solve. It's like having a data storyteller who never gets tired!
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Deep Dive -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                🔧 Technical Architecture (For the Code-Curious)
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Tech Stack -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-jal-navy">🥞 The Tech Stack</h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 bg-blue-500 text-white rounded text-xs flex items-center justify-center">FE</span>
+                            <div>
+                                <strong>Frontend:</strong> Next.js 15, TypeScript, Tailwind CSS, shadcn/ui
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 bg-green-500 text-white rounded text-xs flex items-center justify-center">BE</span>
+                            <div>
+                                <strong>Backend:</strong> Supabase (PostgreSQL + Auth + Real-time)
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 bg-purple-500 text-white rounded text-xs flex items-center justify-center">VZ</span>
+                            <div>
+                                <strong>Visualization:</strong> React Flow, Custom chart components
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 bg-orange-500 text-white rounded text-xs flex items-center justify-center">AN</span>
+                            <div>
+                                <strong>Analysis:</strong> Python, Polars, Pydantic, YAML configs
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 bg-red-500 text-white rounded text-xs flex items-center justify-center">GA</span>
+                            <div>
+                                <strong>Data Sources:</strong> CSV uploads + Google Analytics 4 API integration
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Features -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-jal-navy">✨ Key Features</h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-500 text-lg">✓</span>
+                            <div>
+                                <strong>Priority Algorithm:</strong> JAL-calibrated business impact scoring
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-500 text-lg">✓</span>
+                            <div>
+                                <strong>Real-time Updates:</strong> Live collaborative problem workspace
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-500 text-lg">✓</span>
+                            <div>
+                                <strong>Admin Validation:</strong> Quality control for all user submissions
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-500 text-lg">✓</span>
+                            <div>
+                                <strong>Multi-tenant:</strong> Secure data isolation by client
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <span class="text-green-500 text-lg">✓</span>
+                            <div>
+                                <strong>Performance Optimized:</strong> Caching, memoization, resource monitoring
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <span class="text-blue-500 text-lg">🤝</span>
+                            <div>
+                                <strong>Human-LLM Collaboration:</strong> Strategic oversight with technical automation
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <span class="text-purple-500 text-lg">🔄</span>
+                            <div>
+                                <strong>Automated Data Pipelines:</strong> GA4 API calls managed by LLM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Workflows -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                📋 Common Workflows (Your Daily Adventures)
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Adding New Analysis -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-jal-red">🔬 Running New Analysis</h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-start space-x-2">
+                            <span class="text-blue-500 font-bold">1.</span>
+                            <span>Drop CSV data OR configure GA4 API access</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-blue-500 font-bold">2.</span>
+                            <span>Tell LLM what analysis you want</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-blue-500 font-bold">3.</span>
+                            <span>Review generated configs</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-blue-500 font-bold">4.</span>
+                            <span>Run pipeline: <code class="bg-gray-100 px-1 rounded">make run</code></span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-blue-500 font-bold">5.</span>
+                            <span>Check results in Supabase</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-blue-500 font-bold">6.</span>
+                            <span>Connect to problems via admin panel</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Managing Problems -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-jal-navy">🎯 Managing Problems</h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-start space-x-2">
+                            <span class="text-green-500 font-bold">1.</span>
+                            <span>Users submit problems with business metrics</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-green-500 font-bold">2.</span>
+                            <span>Admin validates and approves submissions</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-green-500 font-bold">3.</span>
+                            <span>Community votes and discusses problems</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-green-500 font-bold">4.</span>
+                            <span>Priority algorithm ranks by business impact</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-green-500 font-bold">5.</span>
+                            <span>Analysis gets connected to relevant problems</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="text-green-500 font-bold">6.</span>
+                            <span>Stakeholders see data-driven insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                🚨 When Things Go Wrong (They Will)
+            </h2>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3 text-red-600">Common Issues & Solutions</h3>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-red-50 border border-red-200 rounded p-3">
+                                <strong class="text-red-700">❌ "No CSV files found"</strong>
+                                <p class="text-sm text-red-600 mt-1">Check your file paths in source.yml and make sure files are in data/raw/</p>
+                            </div>
+                            
+                            <div class="bg-yellow-50 border border-yellow-200 rounded p-3">
+                                <strong class="text-yellow-700">⚠️ "Missing required columns"</strong>
+                                <p class="text-sm text-yellow-600 mt-1">Verify CSV headers match the mapping in your config files</p>
+                            </div>
+                            
+                            <div class="bg-blue-50 border border-blue-200 rounded p-3">
+                                <strong class="text-blue-700">🔗 "Supabase connection failed"</strong>
+                                <p class="text-sm text-blue-600 mt-1">Double-check your .env credentials and network connection</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3 text-green-600">Getting Help</h3>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <span class="text-blue-500">📚</span>
+                                <div>
+                                    <strong>Documentation:</strong> Check the README files in both repositories
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <span class="text-green-500">🐛</span>
+                                <div>
+                                    <strong>Debug Mode:</strong> Run with <code class="bg-gray-100 px-1 rounded">--log-level DEBUG</code>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <span class="text-orange-500">🧪</span>
+                                <div>
+                                    <strong>Test Pipeline:</strong> Use <code class="bg-gray-100 px-1 rounded">make test</code> to validate setup
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <span class="text-purple-500">🤝</span>
+                                <div>
+                                    <strong>Ask for Help:</strong> The team is friendly and caffeinated
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-jal-red via-jal-navy to-jal-gold rounded-lg p-8 text-white">
+                <h2 class="text-3xl font-bold mb-4">Ready to Transform JAL's Customer Experience? 🚀</h2>
+                <p class="text-xl mb-6">You now have the power to turn data into actionable business insights!</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-white bg-opacity-20 rounded p-4">
+                        <div class="text-2xl mb-2">🎯</div>
+                        <strong>Step 1:</strong> Set up your dev environment
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded p-4">
+                        <div class="text-2xl mb-2">🔬</div>
+                        <strong>Step 2:</strong> Run your first analysis
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded p-4">
+                        <div class="text-2xl mb-2">📈</div>
+                        <strong>Step 3:</strong> Connect insights to problems
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <p class="text-lg">
+                        Remember: Every great insight starts with data (CSV or live GA4 API!), strategic thinking, and the perfect LLM partnership! 🧠✨🤖
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">
+                Built with ❤️, ☕, and a whole lot of 🌮's by the Red Thread Collective team
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleStep(stepId) {
+            const content = document.getElementById(stepId + '-content');
+            const icon = document.getElementById(stepId + '-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.textContent = '👆 Click to expand';
+            } else {
+                content.classList.add('expanded');
+                icon.textContent = '👇 Click to collapse';
+            }
+        }
+
+        // Add some dynamic behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate step cards on load
+            const stepCards = document.querySelectorAll('.step-card');
+            stepCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+            
+            // Add some interactive elements
+            const codeBlocks = document.querySelectorAll('.code-block');
+            codeBlocks.forEach(block => {
+                block.addEventListener('click', function() {
+                    // Create a temporary textarea to copy code
+                    const textarea = document.createElement('textarea');
+                    textarea.value = this.textContent;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    
+                    // Show feedback
+                    const originalBg = this.style.backgroundColor;
+                    this.style.backgroundColor = '#10B981';
+                    setTimeout(() => {
+                        this.style.backgroundColor = originalBg;
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
